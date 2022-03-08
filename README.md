@@ -61,4 +61,48 @@ Testable (Unit Test):
 ![Mvvm4Layer2](https://github.com/Teigler/LayeredArchitectureEvaluation/blob/main/GitHubResources/Mvvm4Layer2.png)
 
 
+## Mvvm4Layer3 Component:
+
+### Dependency Injection: 
+Dependency Injection (DI) for architecture structure with factories
+
+Mvvm4Layer3Factory creates the PresentationLogicFactory. Witch creates the PresentationLogic-Class for the Mvvm4Layer3-Class.
+
+The API-Factory in the layer n (e.g. BusinessLogicFactory) creates the class representing the layer n and the API-Factory for layer n-1. 
+- BusinessLogicFactory creates BusinessLogic-Class and DataAccessFactory
+- This can resolve the dependencies between the layer representing classes.
+- But the dependencies are now in the Factory-Classes. 
+	-> e.g.  PresentationLogicFactory depends on BusinessLogicFactory
+
+### Architecturally important:
+In this approach each layer n only knows something about layer n-1.
+-Exception: API-Subcomponent must know something about PresentationLogic- and BusinessLogic-Layer.
+
+### Unit Test:
+-	The layer representing classes are independent testable. 
+-	The factories of each layer are harder to test because we can not resolve the dependencies to the created classes.
+
+### Diagram:
+![Mvvm4Layer2](https://github.com/Teigler/LayeredArchitectureEvaluation/blob/main/GitHubResources/Mvvm4Layer3.png)
+
+## Mvvm4Layer4 Component:
+
+### Dependency Injection: 
+Dependency Injection (DI) for architecture structure realized by factories.
+
+The Mvvm4Layer4Factory-Class creates PresentationLogic-, BusinessLogic- and DataAccess-Factory. 
+
+The PresentationLogic-, BusinessLogic- and DataAccess-Factory than create the PresentationLogic, BusinessLogic and DataAccess Class. 
+
+### Architecturally important:
+-> In this example the API of Mvvm4Layer4 Component must know something about the PresentationLogic-, BusinessLogic- and DataAccess-Layer.
+
+### Unit Test:
+-	The layer representing classes are independent testable. 
+-	The factories of each layer are harder to test because we can not resolve the dependencies to the created classes.
+-	In this approach the Mvvm4Layer4Factory-Method witch creates the PresentationLogic-, BusinessLogic-, and DataAcces-Factory is also testable because of the interfaces of each factory and Constructor-Injection.
+
+### Diagram:
+![Mvvm4Layer2](https://github.com/Teigler/LayeredArchitectureEvaluation/blob/main/GitHubResources/Mvvm4Layer4.png)
+
 
