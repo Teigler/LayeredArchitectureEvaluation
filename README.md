@@ -20,11 +20,11 @@ Layered architecture is a quick and easy way to build a working software archite
 
 ### Dependency Injection: 
 No Dependency Injection for architecture structure! The class representing the layer n (e.g. BusinessLogic-Class) creates the class representing the layer n-1 (DataAccess-Class). 
--> BusinessLogic-Class creates DataAccess-Class
+BusinessLogic-Class creates DataAccess-Class
 This results in a direct dependency that can only be resolved to a limited extent. For example, we could create another constructor in which the required dependency can be initiated.
 
 ### Architecturally important:
--> In this example the API of Mvvm4Layer1 Component must know something about the PresentationLogic- and BusinessLogic-Layer
+In this example the API of Mvvm4Layer1 Component must know something about the PresentationLogic- and BusinessLogic-Layer
 
 ### Tests
 Constructors are not independent testable (Unit Test): 
@@ -38,6 +38,27 @@ Rest of class could be made testable as follows: you would introduce a construct
 I like to avoid the setter injection, because with it is very inconvenient to force an intra-packet set. The problem with internal setters is that they cannot be used in a public interface (in C#).
 
 ### Diagram:
-
-
 ![Mvvm4Layer1](https://github.com/Teigler/LayeredArchitectureEvaluation/blob/main/GitHubResources/Mvvm4Layer1.png)
+
+## Mvvm4Layer2 Component:
+
+
+### Dependency Injection: 
+Dependency Injection (DI) for architecture structure with one Factory: Mvvm4Layer2Factory.
+Mvvm4Layer2Factory creates the PresentationLogic-, BusinessLogic- and DataAccess-Class. 
+
+### Architecturally important:
+In this example the API of Mvvm4Layer2 Component must know something about the PresentationLogic-, BusinessLogic- and DataAccess-Layer.
+
+### Tests:
+Mvvm4Layer2Factory is not independent testable (Unit Test): 
+- Mvvm4Layer2Factory -> you can not resolve dependencies to PresentationLogic-, BusinessLogic-, DataAccess- and Mvvm4Layer1-Class.
+
+Testable (Unit Test):
+- But you can test the constructors of PresentationLogic-, BusinessLogic-, DataAccess and Mvvm4Layer2-Class independent of other classes due to dependency injection.
+
+### Diagram:
+![Mvvm4Layer2](https://github.com/Teigler/LayeredArchitectureEvaluation/blob/main/GitHubResources/Mvvm4Layer2.png)
+
+
+
