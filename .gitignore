@@ -1,32 +1,33 @@
-# Prerequisites
-*.d
+**/.idea/
+**/bin/
+**/obj/
+**/.vscode/
+**/.vs/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
 
-# Precompiled Headers
-*.gch
-*.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
 
-# Fortran module files
-*.mod
-*.smod
+# Sensitive or high-churn files
+**/.idea/**/dataSources/
+**/.idea/**/dataSources.ids
+**/.idea/**/dataSources.xml
+**/.idea/**/dataSources.local.xml
+**/.idea/**/sqlDataSources.xml
+**/.idea/**/dynamic.xml
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+# Rider
+# Rider auto-generates .iml files, and contentModel.xml
+**/.idea/**/*.iml
+**/.idea/**/contentModel.xml
+**/.idea/**/modules.xml
 
-# Executables
-*.exe
-*.out
-*.app
+*.suo
+*.user
+**/[Bb]in/
+**/[Oo]bj/
+**/_UpgradeReport_Files/
+**/[Pp]ackages/
+
+Thumbs.db
+Desktop.ini
+.DS_Store
