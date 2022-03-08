@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Mvvm4Layer2\Entities\" />
+    <Folder Include="Mvvm4Layer2\View\" />
+    <Folder Include="Mvvm4Layer5\Entities\" />
+    <Folder Include="Mvvm4Layer5\View\" />
+    <Folder Include="Mvvm4Layer4\Entities\" />
+    <Folder Include="Mvvm4Layer4\View\" />
+    <Folder Include="Mvvm4Layer3\Entities\" />
+    <Folder Include="Mvvm4Layer3\View\" />
+    <Folder Include="Mvvm4Layer1\Entities\" />
+    <Folder Include="Mvvm4Layer1\View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ninject" Version="3.3.4" />
+  </ItemGroup>
+
+</Project>
