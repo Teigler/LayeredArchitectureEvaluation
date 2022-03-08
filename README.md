@@ -118,14 +118,14 @@ Mvvm4Layer5-Component needs to initialise Kernel-Bindings. This happens in Mvvm3
 The client how want to use the Mvvm4Layer5-Class must use the Kernel (Ninject Container) to get it. The Kernel resolve all needed dependencies. 
 
 ### Architecturally important:
--	Tn this approach API-SubComponent must know something about PresentationLogic- and BusinessLogic-Layer.
+-	In this approach API-SubComponent must know something about PresentationLogic- and BusinessLogic-Layer.
 -	The BusinessLogic layer must be known because the API must access business functionality directly.	   
 
 **Beware:** Maybe it could be possible that someone who uses the same Ninject Kernel (Container) than our Component (Mvvm4Layer5) can use a Class we don't want anyone else to use.
 **BUT:** this should not be possible when we set this Classes internal. Constructors of this classes must be public because Ninject needs them public. But we can set the types internal.
 
 ### Unit Test:
--	The layer representing classes PresentationLogic-, BusinessLogic-, and DataAccess-Class can be tested independent.
+The layer representing classes PresentationLogic-, BusinessLogic-, and DataAccess-Class can be tested independent.
 
 
 ### Diagram:
